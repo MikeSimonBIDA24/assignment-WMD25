@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery – Gaborone Rugby Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+        .gallery-item {
+            Background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            Padding: 15px;
+            Border-radius: 8px;
+            Box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            Margin-bottom: 30px; /* Space between items */
+            Overflow: hidden; /* Ensures image doesn’t break border-radius on hover */
+            Text-align: center; /* Center image and text */
+
+            /* Hover effect */
+            Transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            Transform: translateY(-5px) scale(1.02); /* Lifts and slightly scales the item */
+            Box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+        }
+
+        .gallery-item img {
+            Max-width: 100%;
+            Height: 220px; /* Fixed height for consistent image size */
+            Object-fit: cover; /* Crops images to fit without distorting aspect ratio */
+            Border-radius: 6px; /* Slightly rounded corners for images */
+            Margin-bottom: 15px; /* Space between image and text */
+            Display: block; /* Remove extra space below image */
+            Margin-left: auto; /* Center image horizontally */
+            Margin-right: auto; /* Center image horizontally */
+        }
+
+        .gallery-item p {
+            Font-size: 0.9rem;
+            Color: #666;
+            Line-height: 1.4;
+            Margin-bottom: 0; /* Remove default paragraph margin */
+        }
+
+        .lightbox-modal{
+            display: none;
+            position: fixed; /* Stay in place even when scorring */
+            z-index: 1050;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            object-fit: contain; /*Ensuring the whole image is visible*/
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255,0.3);
+            transition: transform 0.3s ease-out;
+        } 
+        
+       .lightbox-caption {
+    Color: #f1f1f1; /* Light gray text for the caption */
+    Font-size: 1.2rem; /* Larger font size for readability */
+    Padding: 10px 0; /* Padding above and below the caption */
+    Text-align: center; /* Center the caption text */
+    Max-width: 80%; /* Limit caption width */
+    Margin-top: 10px; /* Space between image and caption */
+}
+
+.close-btn {
+    Position: absolute; /* Position relative to the modal */
+    Top: 20px; /* Distance from top */
+    Right: 35px; /* Distance from right */
+    Color: #f1f1f1; /* White color for the ‘X’ */
+    Font-size: 40px; /* Large font size for easy clicking */
+    Font-weight: bold; /* Bold ‘X’ */
+    Transition: 0.3s; /* Smooth transition for hover effect */
+    Cursor: pointer; /* Indicate it’s clickable */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    Color: #bbb; /* Lighter gray on hover/focus */
+    Text-decoration: none; /* Remove underline if it appears */
+    Cursor: pointer; /* Keep cursor as pointer */
+}
+
+/* Also, ensure this is in your style.css for the gallery items */
+.gallery-item {
+    /* ... existing styles ... */
+    Cursor: pointer; /* Indicate that the small gallery images are clickable */
+}
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/ubrhinos_logo.png" alt="UB Rhinos Logo">Ub Rhinos Rugby
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="join.html">Join Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a> </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1 class="text-center mb-5">Our Rugby Moments</h1>
+        <p class="text-center lead mb-5">
+            Explore some of our favorite memories, thrilling matches, and team camaraderie captured through the lens.
+        </p>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_game.jpg" alt="Match day against Jaguars" data-full-src="image/ubrhinos_game.jpg">
+                    <p>Date: May 10, 2025<br>Place: National Stadium, Gaborone</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src= "images/ubrhinos_warmup.jpg" alt="Players warming up">
+                    <p>Date: May 05, 2025<br>Place: Club Grounds, Gaborone</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_newteam.jpg" alt="Full team photo">
+                    <p>Date: April 28, 2025<br>Place: Duma Grounds</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_main3.jpg" alt="Players huddle before a macth">
+                    <p>Date: April 20, 2025<br>Place: UB Stadium, Gaborone</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_main4.jpg" alt="Player coming on to the feild">
+                    <p>Date: April 15, 2025<br>Place: Training Pitch A</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_newplayer.jpg" alt="New Player on his debut">
+                    <p>Date: April 08, 2025<br>Place: Local League Match</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_newkit.jpg" alt="Rhinos Vice Captain on Match day">
+                    <p>Date: March 30, 2025<br>Place: Gaborone Rugby Field</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_captain.jpg" alt="Rhinos Captain on a Photoup">
+                    <p>Date: March 22, 2025<br>Place: Community Outreach Event</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_huddle.jpg" alt="Team huddle after a match">
+                    <p>Date: March 15, 2025<br>Place: Changing Rooms</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                <div class="gallery-item">
+                    <img src="images/ubrhinos_lineout.jpg" alt="UbRhinos competing in a lineout">
+                    <p>Date: March 08, 2025<br>Place: Club House, Gaborone</p>
+                </div>
+            </div>
+
+        </div> </div> <footer class="bg-dark text-white py-3 mt-5">
+        <div class="container text-center">
+            <p style="color: black;">&copy; 2025 Gaborone Rugby Club. All rights reserved.</p>
+             <div class="social-icons mb-3">
+                <a href="https://www.tiktok.com/@ub.rhinoa?_t=ZM-8wesbgF2CWr&_r=1" target="_blank" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://www.facebook.com/UBRhinos" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/ub_rhinos/?utm_source=ig_web_button_share_sheet" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+            <p class="text-white-50”>Connect with us on social media!"></p>
+          </div>
+        </div>
+    </footer>
+
+    <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js></script>
+    <script src="script.js"></script> 
+    <div id="lightboxModal" class="light-modal">
+        <span   class="close-btn">&times;</span>
+        <img class="lightbox-content" id="img01">
+        <div id="captain" class="lightbox-caption"></div>
+    </div>
+</body>
+</html>
+
+

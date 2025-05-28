@@ -1,0 +1,152 @@
+/* style.css */
+
+body {
+    background-image: url('images/ubrhinos_main2.jpg'); /* Change 'your-background-image.jpg' to your image file name */
+    background-size: cover; /* This makes the image cover the entire body */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Keeps the background image fixed while content scrolls */
+    min-height: 100vh; /* Ensures the body is at least the full height of the viewport */
+    /* You might want to add a fallback background color */
+    background-color: #f0f0f0; /* A light grey fallback color */
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+    padding: 20px; /* Add some padding */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-top: 20px; /* Adjust as needed */
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+
+.navbar { 
+    background-color: #333;
+}
+.navbar a {color: black;}
+
+
+
+/* For the logo in the navbar */
+.navbar-brand img {
+    Height: 85px; /* Or whatever height you want the logo to appear */
+    Width: auto; /* Maintain aspect ratio */
+    Display: inline-block; /* Helps with alignment in some navbars */
+    Vertical-align: middle; /* Aligns it nicely if there’s text next to it */
+    Margin-right: 10px; /* Space between logo and text (if any) */
+    border: none;
+}
+
+.btn-primary {
+    color: black;
+    background-color: transparent;
+    border-color: black;
+}
+
+.btn-primary:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-outline-success {
+    color: black;
+    background-color: transparent;
+    border-color: black;
+}
+
+.btn-outline-success:hover {
+    background-color: black;
+    border-color: black;
+}
+
+.table-section-wrapper{
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0  15px;
+    margin-bottom: 30px;
+}
+
+/* Lightbox Modal Styles */
+.lightbox-modal {
+    Display: none; /* Hidden by default, JavaScript will change this to ‘flex’ */
+    Position: fixed; /* Stay in place even when scrolling */
+    z-index: 1050; /* Sit on top of everything, higher than Bootstrap modals (1040) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if content is larger than viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Black overlay with 90% opacity */
+    
+    /* Flexbox for centering content */
+    Display: flex; /* This is what JS sets when showing the modal */
+    Justify-content: center; /* Center content horizontally */
+    Align-items: center; /* Center content vertically */
+    Flex-direction: column; /* Stack image and caption vertically */
+}
+
+.lightbox-content {
+    Max-width: 90%; /* Max width of the displayed image */
+    Max-height: 90%; /* Max height of the displayed image */
+    Object-fit: contain; /* Ensures the whole image is visible within its bounds, maintaining aspect ratio */
+    Border-radius: 8px; /* Rounded corners for the large image */
+    Box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Subtle light shadow for the image */
+    Transition: transform 0.3s ease-out; /* Smooth transition when the image appears/disappears */
+}
+
+.lightbox-caption {
+    Color: #f1f1f1; /* Light gray text for the caption */
+    Font-size: 1.2rem; /* Larger font size for readability */
+    Padding: 10px 0; /* Padding above and below the caption */
+    Text-align: center; /* Center the caption text */
+    Max-width: 80%; /* Limit caption width */
+    Margin-top: 10px; /* Space between image and caption */
+}
+
+.close-btn {
+    Position: absolute; /* Position relative to the modal */
+    Top: 20px; /* Distance from top */
+    Right: 35px; /* Distance from right */
+    Color: #f1f1f1; /* White color for the ‘X’ */
+    Font-size: 40px; /* Large font size for easy clicking */
+    Font-weight: bold; /* Bold ‘X’ */
+    Transition: 0.3s; /* Smooth transition for hover effect */
+    Cursor: pointer; /* Indicate it’s clickable */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    Color: #bbb; /* Lighter gray on hover/focus */
+    Text-decoration: none; /* Remove underline if it appears */
+    Cursor: pointer; /* Keep cursor as pointer */
+}
+
+/* Also, ensure this is in your style.css for the gallery items */
+.gallery-item {
+    /* ... existing styles ... */
+    Cursor: pointer; /* Indicate that the small gallery images are clickable */
+}
+
+
+/* Footer Social Media Icons */
+.social-icons a {
+    Color: black; /* Icon color */
+    Font-size: 1.8rem; /* Icon size */
+    Margin: 0 10px; /* Spacing between icons */
+    Transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.social-icons a:hover {
+    Color: white; /* Change color on hover (e.g., Bootstrap primary blue) */
+    /* You can use specific brand colors if you prefer: */
+    /* .social-icons a .fa-tiktok:hover { color: #69C9D0; } */
+    /* .social-icons a .fa-facebook-f:hover { color: #3b5998; } */
+    /* .social-icons a .fa-instagram:hover { color: #C13584; } */
+}
+
+
+
+
+
